@@ -34,7 +34,10 @@ static void expr(Tvm *tvm) {
 		tvm->add_label_and_set_addr(g_token);
 		match(TOKEN_LABEL);
 		match(TOKEN_COLON);
+		//printf("%s\n", g_token);
 	}
+	OpType t = g_op_type;
+	//printf("%s\n", tvm->get_op_type_str(t).c_str());	
 	switch (g_token_type) {
 		case TOKEN_LDST: //ld st
 			match(TOKEN_LDST);
@@ -119,7 +122,7 @@ static void expr(Tvm *tvm) {
 		default:
 			syntax_unexpected(g_token);	
 	}
-	tvm->add_instruction(Instruction(g_op_type, arg0, arg1, arg2));
+	tvm->add_instruction(Instruction(t, arg0, arg1, arg2));
 }
 
 void parse(Tvm *tvm) {

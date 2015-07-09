@@ -3,7 +3,7 @@ CXXFLAGS = -g -std=c++0x -Wall
 LEX_FILE = tvm.lex
 OBJ = parse.o tvm.o lex.yy.o
 
-main: $(OBJ)
+main: main.cc $(OBJ)
 	$(CXX) -o $@ main.cc $(OBJ) $(CXXFLAGS)
 	
 all: lex main test 
@@ -14,10 +14,10 @@ lex:
 
 test: parse.test lex.test 
 
-lex.test: lex.yy.o 
+lex.test: lex.test.cc lex.yy.o 
 	$(CXX) -o $@ lex.test.cc lex.yy.o $(CXXFLAGS)
 
-parse.test: $(OBJ) 
+parse.test: parse.test.cc $(OBJ) 
 	$(CXX) -o $@ parse.test.cc $(OBJ) $(CXXFLAGS)
 
 lex.yy.o: lex.h

@@ -1,6 +1,22 @@
-** TVM (Tiny Vitrual Machine)
+* TVM (Tiny Vitrual Machine)
+A tiny virual machine as RISC like assembly interpreter, 
+as the middle code reprentation of my further DIY language, 
+undergoing...
 
-** grammer bnf
+** TVM Introduction
+TVM is a RISC like assembly language virtual machine or interpreter, it supports
+arithmetic operation, compare operation, jump operation, stack operation as well
+as limited memory access operation. Explained below in details:
+1. st, ld(store, load memory access)
+#+begin_src asm
+	st r0, [r1]
+	st r0, [r1, r2]
+#+end_src
+2. 
+
+
+
+** TVM Grammer BNF 
 #+BEGIN_EXAMPLE
 reg -> r[0-7]
 number -> [0-9]+

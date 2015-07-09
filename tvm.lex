@@ -31,6 +31,7 @@ label {letter}({digit}|{letter})*
 "push"		{/*printf("%s\n", yytext);*/ g_op_type = OP_PUSH; return TOKEN_STACK;}
 "pop" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_POP;  return TOKEN_STACK;}
 "cmp" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_CMP;  return TOKEN_CMP;}
+
 "jmp" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_JMP;  return TOKEN_JMP;}
 "je" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_JE;   return TOKEN_JMP;}
 "jne" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_JNE;  return TOKEN_JMP;}

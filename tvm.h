@@ -69,7 +69,12 @@ public:
 		return label_map_[label];
 	}
 
+	void run();
 	bool check_symbol_table();
+	void rebuild_instructions(); 
+
+	std::string get_op_type_str(OpType t); 
+	std::string get_args_str(const Args &arg); 
 protected:
 	int pc_; //program counter
 	int sp_; //stack pointer
@@ -80,8 +85,8 @@ protected:
 	std::vector<int> data_mem_;
 	std::vector<Instruction> code_mem_;
 	//TODO symbol table
-	std::unordered_map<std::string, int> label_map_; //map label to int
-	std::unordered_map<int, int> label_addr_; //label addr
+	std::unordered_map<std::string, int> label_map_; //map label to int id 
+	std::unordered_map<int, int> label_addr_; //map label id to label pc addr
 };
 
 #endif
