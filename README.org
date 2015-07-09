@@ -1,0 +1,35 @@
+** TVM (Tiny Vitrual Machine)
+
+** grammer bnf
+#+BEGIN_EXAMPLE
+reg -> r[0-7]
+number -> [0-9]+
+mem -> [reg,reg] 
+label -> [a-z][a-z0-9]+
+
+mov_expr -> mov reg, (reg | number)
+mem_expr -> (st | ld) reg, (mem)  
+calc_expr -> add reg, reg, reg |
+             sub reg, reg, reg |
+             mul reg, reg, reg |
+             dvi reg, reg, reg |
+cmp_expr -> cmp reg, reg 
+stack_expr -> push reg |
+              pop reg
+jmp_expr -> jmp label | 
+            jne label | 
+            jg  label | 
+            jg  label | 
+            jl  label | 
+            jge label | 
+            jle label | 
+all_expr -> st_expr |
+            ld_expr |
+            calc_expr |
+            cmp_expr |
+            jmp_expr |
+
+label_expr -> label ':' all_expr
+expr -> label_expr | 
+        all_expr
+#+END_EXAMPLE

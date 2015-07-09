@@ -1,0 +1,7 @@
+*.o
+*.exe
+*out
+*.stackdup
+core.*
+lex.test
+parse.test
