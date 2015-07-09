@@ -23,20 +23,22 @@ as limited memory access operation like ARM Assembly. Explained below in details
 sum.tvm sums 1 to N and print the result
 *** Code
 #+begin_src asm
-	mov r0, 0 
-	mov r1, 1
-	mov r2, 10 #(N=10)
+    mov r0, 0 
+    mov r1, 1
+    mov r2, 10 #(N=10)
 l1: cmp r1, r2
-	jg l2
-	add r0, r0, r1
-	inc r1
-	jmp l1
+    jg l2
+    add r0, r0, r1
+    inc r1
+    jmp l1
 l2: out r0
-	hlt
+    hlt
 #+end_src
-*** Trace and Result
+*** Symbol Table
 [[./img/symtab.png]]
+*** Trace Info 
 [[./img/trace.png]]
+*** Result
 [[./img/result.png]]
 
 
@@ -57,9 +59,9 @@ cmp_expr -> cmp reg, reg
 stack_expr -> push reg |
               pop reg
 one_expr -> inc reg |
-			dec reg 
+            dec reg 
 io_expr -> in reg | 
-		   out reg
+           out reg
 jmp_expr -> jmp label | 
             jne label | 
             jg  label | 
@@ -72,7 +74,7 @@ all_expr -> mov_expr |
             calc_expr |
             cmp_expr |
             jmp_expr |
-			one_expr |
+            one_expr |
 label_expr -> label ':' all_expr
 expr -> label_expr | 
         all_expr
