@@ -37,6 +37,7 @@ l2: out r0
 *** Symbol Table
 [[./img/symtab.png]]
 *** Trace Info 
+#+ATTR_HTML: width="50%"
 [[./img/trace.png]]
 *** Result
 [[./img/result.png]]
