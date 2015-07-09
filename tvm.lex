@@ -38,6 +38,10 @@ label {letter}({digit}|{letter})*
 "jl" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_JL;   return TOKEN_JMP;}
 "jge" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_JGE;  return TOKEN_JMP;}
 "jle" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_JLE;  return TOKEN_JMP;}
+"inc" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_INC;  return TOKEN_ONE;}
+"dec" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_DEC;  return TOKEN_ONE;}
+"in" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_IN;   return TOKEN_IO;}
+"out" 		{/*printf("%s\n", yytext);*/ g_op_type = OP_OUT;  return TOKEN_IO;}
 "r0" | 
 "r1" |
 "r2" |

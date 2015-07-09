@@ -13,9 +13,18 @@ calc_expr -> add reg, reg, reg |
              sub reg, reg, reg |
              mul reg, reg, reg |
              dvi reg, reg, reg |
+
 cmp_expr -> cmp reg, reg 
+
 stack_expr -> push reg |
               pop reg
+
+one_expr -> inc reg |
+			dec reg 
+
+io_expr -> in reg | 
+		   out reg
+
 jmp_expr -> jmp label | 
             jne label | 
             jg  label | 
@@ -23,13 +32,15 @@ jmp_expr -> jmp label |
             jl  label | 
             jge label | 
             jle label | 
-all_expr -> st_expr |
-            ld_expr |
+all_expr -> mov_expr |
+            mem_expr |
             calc_expr |
             cmp_expr |
             jmp_expr |
+			one_expr |
 
 label_expr -> label ':' all_expr
+
 expr -> label_expr | 
         all_expr
 #+END_EXAMPLE

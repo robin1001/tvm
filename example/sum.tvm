@@ -1,0 +1,12 @@
+	mov r0, 0 
+	mov r1, 1
+	mov r2, 20
+l1: 
+	cmp r1, r2
+	jg l2
+	add r0, r0, r1
+	inc r1
+	jmp l1
+l2:
+	out r0
+	hlt

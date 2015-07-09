@@ -74,7 +74,9 @@ static void expr(Tvm *tvm) {
 			}
 			break;
 		case TOKEN_STACK:
-			match(TOKEN_STACK);
+		case TOKEN_ONE:
+		case TOKEN_IO:
+			match(g_token_type);
 			match(TOKEN_REG);
 			arg0.arg_type = ARG_REG;
 			arg0.val = get_reg_id(g_prev_token);
