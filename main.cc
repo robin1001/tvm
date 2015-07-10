@@ -5,11 +5,12 @@
 
 
 int main() {
-	Tvm tvm;	
+	bool trace = false;
+	Tvm tvm(trace);	
 	parse(&tvm);
 	if (!tvm.check_symbol_table()) {
 		printf("semantic symbol error, aborting...\n");
 	}
-	tvm.rebuild_instructions();
+	if (trace) tvm.rebuild_instructions();
 	tvm.run();
 }

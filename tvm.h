@@ -45,7 +45,7 @@ struct Instruction {
 //tiny virtual machine
 class Tvm{ 
 public:
-	Tvm(); 
+	Tvm(bool t = false); 
 	void add_instruction(const Instruction &ins) {
 		code_mem_[num_ins_++] = ins;	
 		assert(num_ins_ < CODE_MEM_SIZE);
@@ -76,6 +76,7 @@ public:
 	std::string get_op_type_str(OpType t); 
 	std::string get_args_str(const Args &arg); 
 protected:
+	bool trace_;
 	int pc_; //program counter
 	int sp_; //stack pointer
 	int flag_; //compare flags

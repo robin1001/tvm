@@ -58,6 +58,12 @@ label {letter}({digit}|{letter})*
 ":" 		{/*printf("%s\n", yytext);*/ return TOKEN_COLON;}
 "[" 		{/*printf("%s\n", yytext);*/ return TOKEN_LEFT_BRACKT;}
 "]" 		{/*printf("%s\n", yytext);*/ return TOKEN_RIGHT_BRACKT;}
+"#"         { char ch;
+			  do {
+			  	ch = input();
+			  	if (ch == EOF) return TOKEN_EOF;
+			  } while ( ch != '\n'); 
+			}
 . {return TOKEN_EOF;}
  
 %%

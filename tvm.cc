@@ -3,7 +3,7 @@
 #include "tvm.h"
 
 
-Tvm::Tvm():pc_(0), sp_(0), flag_(0), num_ins_(0), num_labels_(0),  
+Tvm::Tvm(bool t):trace_(t), pc_(0), sp_(0), flag_(0), num_ins_(0), num_labels_(0),  
 		   regs_(NUM_REGISTERS, 0), data_mem_(DATA_MEM_SIZE, 0), 
 		   code_mem_(CODE_MEM_SIZE, Instruction()) {
 	
@@ -12,11 +12,11 @@ Tvm::Tvm():pc_(0), sp_(0), flag_(0), num_ins_(0), num_labels_(0),
 
 bool Tvm::check_symbol_table() {
 	std::unordered_map<std::string, int>::iterator it;
-	printf("printing symbol table:\n");
-	printf("label\tid\tpc\n");
+	if (trace_) printf("printing symbol table:\n");
+	if (trace_) printf("label\tid\tpc\n");
 	for (it = label_map_.begin(); it != label_map_.end(); it++) {
 		if (label_addr_.find(it->second) != label_addr_.end()) {
-			printf("%s\t%d\t%d\n", it->first.c_str(), it->second, label_addr_[it->second]);	
+			if (trace_) printf("%s\t%d\t%d\n", it->first.c_str(), it->second, label_addr_[it->second]);	
 		}
 		else {
 			printf("%s\t%d\t?\n", it->first.c_str(), it->second);	
@@ -24,14 +24,14 @@ bool Tvm::check_symbol_table() {
 			return false;
 		}
 	}
-	printf("\n");
+	if (trace_) printf("\n");
 	return true;
 }
 
 void Tvm::run() {
 	printf("start running tvm code...\n");
 	//printf("num instructions %d\n", num_ins_);
-	printf("pc\t\top_type\t\targ0\t\targ1\t\targ2\n");
+	if (trace_) printf("pc\t\top_type\t\targ0\t\targ1\t\targ2\n");
 	while (code_mem_[pc_].op_type != OP_HLT) {
 		ArgType type0 = code_mem_[pc_].arg0.arg_type, 
 			    type1 = code_mem_[pc_].arg1.arg_type, 
@@ -39,11 +39,12 @@ void Tvm::run() {
 		int value0 = code_mem_[pc_].arg0.val, 
 			value1 = code_mem_[pc_].arg1.val, 
 			value2 = code_mem_[pc_].arg2.val;
-		
-		printf("%d\t\t%s", pc_, get_op_type_str(code_mem_[pc_].op_type).c_str());
-		printf("\t\t%s", get_args_str(code_mem_[pc_].arg0).c_str());
-		printf("\t\t%s", get_args_str(code_mem_[pc_].arg1).c_str());
-		printf("\t\t%s\n", get_args_str(code_mem_[pc_].arg2).c_str());
+		if (trace_) {	
+			printf("%d\t\t%s", pc_, get_op_type_str(code_mem_[pc_].op_type).c_str());
+			printf("\t\t%s", get_args_str(code_mem_[pc_].arg0).c_str());
+			printf("\t\t%s", get_args_str(code_mem_[pc_].arg1).c_str());
+			printf("\t\t%s\n", get_args_str(code_mem_[pc_].arg2).c_str());
+		}
 
 		switch (code_mem_[pc_].op_type) {
 			case OP_MOV:
