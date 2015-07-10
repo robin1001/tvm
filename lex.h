@@ -1,3 +1,7 @@
+/* TVM(Tiny Virtual Machine)
+ * Author: robin1001
+ * Date: 2015-07-08
+ */
 #ifndef _LEX_H_
 #define _LEX_H_
 

@@ -1,3 +1,8 @@
+/* TVM(Tiny Virtual Machine)
+ * Author: robin1001
+ * Date: 2015-07-08
+ */
+
 #include <stdio.h>
 
 #include "lex.h"
