@@ -4,7 +4,7 @@ LEX_FILE = tvm.lex
 OBJ = parse.o tvm.o lex.yy.o
 
 main: main.cc $(OBJ)
-	$(CXX) -o $@ main.cc $(OBJ) $(CXXFLAGS)
+	$(CXX) -o $@ $< $(OBJ) $(CXXFLAGS)
 	
 all: lex main test 
 	
@@ -15,10 +15,10 @@ lex:
 test: parse.test lex.test 
 
 lex.test: lex.test.cc lex.yy.o 
-	$(CXX) -o $@ lex.test.cc lex.yy.o $(CXXFLAGS)
+	$(CXX) -o $@ $< lex.yy.o $(CXXFLAGS)
 
 parse.test: parse.test.cc $(OBJ) 
-	$(CXX) -o $@ parse.test.cc $(OBJ) $(CXXFLAGS)
+	$(CXX) -o $@ $< $(OBJ) $(CXXFLAGS)
 
 lex.yy.o: lex.h
 tvm.o: lex.yy.o tvm.h

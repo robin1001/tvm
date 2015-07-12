@@ -500,7 +500,11 @@ int yy_flex_debug = 0;
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
 #line 1 "tvm.lex"
-#line 2 "tvm.lex"
+/* TVM(Tiny Virtual Machine)
+ * Author: robin1001
+ * Date: 2015-07-08
+ */
+#line 6 "tvm.lex"
 #include <stdio.h>
 #include <string.h>
 
@@ -510,7 +514,7 @@ char g_token[MAX_TOKEN];
 TokenType g_token_type;
 OpType g_op_type;
 
-#line 514 "lex.yy.c"
+#line 518 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -719,10 +723,10 @@ YY_DECL
 		}
 
 	{
-#line 20 "tvm.lex"
+#line 24 "tvm.lex"
 
 
-#line 726 "lex.yy.c"
+#line 730 "lex.yy.c"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -782,171 +786,171 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 22 "tvm.lex"
+#line 26 "tvm.lex"
 /*ignore \t and ' ' */
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 23 "tvm.lex"
+#line 27 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_HLT;  return TOKEN_HLT;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 24 "tvm.lex"
+#line 28 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_MOV;  return TOKEN_MOV;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 25 "tvm.lex"
+#line 29 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_LD;   return TOKEN_LDST;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 26 "tvm.lex"
+#line 30 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_ST;   return TOKEN_LDST;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 27 "tvm.lex"
+#line 31 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_ADD;  return TOKEN_CALC;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 28 "tvm.lex"
+#line 32 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_SUB;  return TOKEN_CALC;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 29 "tvm.lex"
+#line 33 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_MUL;  return TOKEN_CALC;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 30 "tvm.lex"
+#line 34 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_DVI;  return TOKEN_CALC;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 31 "tvm.lex"
+#line 35 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_PUSH; return TOKEN_STACK;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 32 "tvm.lex"
+#line 36 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_POP;  return TOKEN_STACK;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 33 "tvm.lex"
+#line 37 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_CMP;  return TOKEN_CMP;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 35 "tvm.lex"
+#line 39 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_JMP;  return TOKEN_JMP;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 36 "tvm.lex"
+#line 40 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_JE;   return TOKEN_JMP;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 37 "tvm.lex"
+#line 41 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_JNE;  return TOKEN_JMP;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 38 "tvm.lex"
+#line 42 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_JG;   return TOKEN_JMP;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 39 "tvm.lex"
+#line 43 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_JL;   return TOKEN_JMP;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 40 "tvm.lex"
+#line 44 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_JGE;  return TOKEN_JMP;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 41 "tvm.lex"
+#line 45 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_JLE;  return TOKEN_JMP;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 42 "tvm.lex"
+#line 46 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_INC;  return TOKEN_ONE;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 43 "tvm.lex"
+#line 47 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_DEC;  return TOKEN_ONE;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 44 "tvm.lex"
+#line 48 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_IN;   return TOKEN_IO;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 45 "tvm.lex"
+#line 49 "tvm.lex"
 {/*printf("%s\n", yytext);*/ g_op_type = OP_OUT;  return TOKEN_IO;}
 	YY_BREAK
 case 24:
-#line 47 "tvm.lex"
-case 25:
-#line 48 "tvm.lex"
-case 26:
-#line 49 "tvm.lex"
-case 27:
-#line 50 "tvm.lex"
-case 28:
 #line 51 "tvm.lex"
-case 29:
+case 25:
 #line 52 "tvm.lex"
-case 30:
+case 26:
 #line 53 "tvm.lex"
+case 27:
+#line 54 "tvm.lex"
+case 28:
+#line 55 "tvm.lex"
+case 29:
+#line 56 "tvm.lex"
+case 30:
+#line 57 "tvm.lex"
 case 31:
 YY_RULE_SETUP
-#line 53 "tvm.lex"
+#line 57 "tvm.lex"
 {/*printf("%s\n", yytext);*/ return TOKEN_REG;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 54 "tvm.lex"
+#line 58 "tvm.lex"
 {/*printf("%s\n", yytext);*/ return TOKEN_LABEL;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 55 "tvm.lex"
+#line 59 "tvm.lex"
 {/*printf("%s\n", yytext);*/ return TOKEN_NUMBER;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 57 "tvm.lex"
+#line 61 "tvm.lex"
 {/*printf("%s\n", yytext);*/ return TOKEN_COMMA;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 58 "tvm.lex"
+#line 62 "tvm.lex"
 {/*printf("%s\n", yytext);*/ return TOKEN_COLON;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 59 "tvm.lex"
+#line 63 "tvm.lex"
 {/*printf("%s\n", yytext);*/ return TOKEN_LEFT_BRACKT;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 60 "tvm.lex"
+#line 64 "tvm.lex"
 {/*printf("%s\n", yytext);*/ return TOKEN_RIGHT_BRACKT;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 61 "tvm.lex"
+#line 65 "tvm.lex"
 { char ch;
 			  do {
 			  	ch = input();
@@ -956,15 +960,15 @@ YY_RULE_SETUP
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 67 "tvm.lex"
+#line 71 "tvm.lex"
 {return TOKEN_EOF;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 69 "tvm.lex"
+#line 73 "tvm.lex"
 ECHO;
 	YY_BREAK
-#line 968 "lex.yy.c"
+#line 972 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1959,7 +1963,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 69 "tvm.lex"
+#line 73 "tvm.lex"
 
 
 
