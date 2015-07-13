@@ -34,11 +34,11 @@ l2: out r0
     hlt
 ```
 ### Symbol Table
-[[./img/symtab.png]]
+![symbol table](./img/symtab.png)
 ### Trace Info 
-[[./img/trace.png]]
+![trace info](./img/trace.png)
 ### Result
-[[./img/result.png]]
+![sum result](./img/result.png)
 
 
 
