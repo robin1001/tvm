@@ -43,7 +43,7 @@ l2: out r0
 
 
 ## TVM Grammer BNF 
-```
+```bnf
 reg -> r[0-7]
 number -> [0-9]+
 mem -> [reg,reg] 
@@ -79,8 +79,9 @@ expr -> label_expr |
         all_expr
 ```
 
+
 > This is the first level of quoting.
 >
-> > This is nested blockquote.
+> >This is nested blockquote.
 >
 > Back to the first level.
