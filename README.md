@@ -1,28 +1,27 @@
-* TVM (Tiny Vitrual Machine)
+## TVM (Tiny Vitrual Machine)
 A tiny virual machine as RISC like assembly interpreter, 
 as the middle code reprentation of my further DIY language, 
 undergoing...
 
-** TVM Introduction
+## TVM Introduction
 TVM is a RISC(more register, limited memory access way) like assembly language 
 virtual machine or interpreter, it supports arithmetic operation, 
 compare operation, jump operation, stack operation as well
 as limited memory access operation like ARM Assembly. Explained below in details:
 
-+ st, ld: load or store register value to memory, eg st r0, [r1]; ld r0, [r1, r2])
-+ mov: mov register value or instant value to register, eg mov r0, r1(r0 = r1); mov r0, 1(r0 = 1)
-+ add, sub, mul, dvi: arithmetic operation, all the parameters should be register, eg add r0, r1, r2(r0=r1+r2)
-+ push pop: stack operation **TODO**
-+ inc, dec: unary resgister operation, eg inc r0(r0=r0+1)
-+ in, out: input ouput operation, just for fun
-+ cmp: comparision between registers eg cmp r0, r1
-+ jmp ,je(=), jne(!=), jg(>), jge(>=), jl(<), jle(<=): support multiple condition of comparison 
+- [x] st, ld: load or store register value to memory, eg st r0, [r1]; ld r0, [r1, r2])
+- [x] mov: mov register value or instant value to register, eg mov r0, r1(r0 = r1); mov r0, 1(r0 = 1)
+- [x] add, sub, mul, dvi: arithmetic operation, all the parameters should be register, eg add r0, r1, r2(r0=r1+r2)
+- [ ] push pop: stack operation 
+- [x] inc, dec: unary resgister operation, eg inc r0(r0=r0+1)
+- [x] in, out: input ouput operation, just for fun
+- [x] cmp: comparision between registers eg cmp r0, r1
+- [x] jmp ,je(=), jne(!=), jg(>), jge(>=), jl(<), jle(<=): support multiple condition of comparison 
 
-
-** TVM Example(example/sum.tvm)
+## TVM Example(example/sum.tvm)
 sum.tvm sums 1 to N and print the result
-*** Code
-#+begin_src asm
+### Code
+```asm
     mov r0, 0 
     mov r1, 1
     mov r2, 10 #(N=10)
@@ -33,19 +32,18 @@ l1: cmp r1, r2
     jmp l1
 l2: out r0
     hlt
-#+end_src
-*** Symbol Table
+```
+### Symbol Table
 [[./img/symtab.png]]
-*** Trace Info 
-#+ATTR_HTML: width="50%"
+### Trace Info 
 [[./img/trace.png]]
-*** Result
+### Result
 [[./img/result.png]]
 
 
 
-** TVM Grammer BNF 
-#+BEGIN_EXAMPLE
+## TVM Grammer BNF 
+```
 reg -> r[0-7]
 number -> [0-9]+
 mem -> [reg,reg] 
@@ -79,4 +77,4 @@ all_expr -> mov_expr |
 label_expr -> label ':' all_expr
 expr -> label_expr | 
         all_expr
-#+END_EXAMPLE
+```
