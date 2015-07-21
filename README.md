@@ -12,7 +12,7 @@ as limited memory access operation like ARM Assembly. Explained below in details
 - [x] st, ld: load or store register value to memory, eg st r0, [r1]; ld r0, [r1, r2])
 - [x] mov: mov register value or instant value to register, eg mov r0, r1(r0 = r1); mov r0, 1(r0 = 1)
 - [x] add, sub, mul, dvi: arithmetic operation, all the parameters should be register, eg add r0, r1, r2(r0=r1+r2)
-- [ ] push pop: stack operation 
+- [x] push pop: stack operation 
 - [x] inc, dec: unary resgister operation, eg inc r0(r0=r0+1)
 - [x] in, out: input ouput operation, just for fun
 - [x] cmp: comparision between registers eg cmp r0, r1

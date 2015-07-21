@@ -7,7 +7,7 @@
 #include "tvm.h"
 
 
-Tvm::Tvm(bool t):trace_(t), pc_(0), sp_(0), flag_(0), num_ins_(0), num_labels_(0),  
+Tvm::Tvm(bool t):trace_(t), pc_(0), sp_(DATA_MEM_SIZE-1), flag_(0), num_ins_(0), num_labels_(0),  
 		   regs_(NUM_REGISTERS, 0), data_mem_(DATA_MEM_SIZE, 0), 
 		   code_mem_(CODE_MEM_SIZE, Instruction()) {
 	
@@ -102,8 +102,12 @@ void Tvm::run() {
 				printf("tvm output:%d\n", regs_[value0]);
 				break;
 			case OP_POP:
+                assert(sp_ < DATA_MEM_SIZE);
+                regs_[value0] = data_mem_[sp_++];
 				break;
 			case OP_PUSH:
+                assert(sp_ > 0);
+                data_mem_[sp_--] = regs_[value0];
 				break;
 			case OP_CMP:
 				assert(ARG_REG == type0);
