@@ -8,7 +8,7 @@
 #include "tvm.h"
 
 int main() {
-	Tvm tvm(true);	
-	parse(&tvm);
-	tvm.rebuild_instructions();
+    Tvm tvm(true);  
+    parse(&tvm);
+    tvm.rebuild_instructions();
 }

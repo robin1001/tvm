@@ -9,9 +9,9 @@
 
 int main() 
 {
-	while(get_token()) {
-		printf("%s\n", g_token);	
-	}
+    while(get_token()) {
+        printf("%s\n", g_token);    
+    }
     return 0;
 }
 
